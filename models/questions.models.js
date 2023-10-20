@@ -5,10 +5,6 @@ const questionSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  typeInput: {
-    type: String,
-    required: true,
-  },
   question: {
     type: [Object],
   },
