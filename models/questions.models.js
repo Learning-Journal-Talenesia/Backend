@@ -6,7 +6,12 @@ const questionSchema = mongoose.Schema({
     required: true,
   },
   question: {
-    type: [Object],
+    type: [String],
+    required: true,
+  },
+  inputType: {
+    type: String,
+    required: true,
   },
   createdAt: {
     type: Date,
