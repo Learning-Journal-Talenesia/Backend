@@ -1,16 +1,17 @@
 import mongoose from "mongoose";
 
 const questionSchema = mongoose.Schema({
-  idtema:{
+  thema: {
     type: String,
-    required: true
+    required: true,
   },
-  title: {
+  question: {
+    type: [String],
+    required: true,
+  },
+  inputType: {
     type: String,
-    required: true
-  },
-  questions: {
-    type: [Object],
+    required: true,
   },
   createdAt: {
     type: Date,
