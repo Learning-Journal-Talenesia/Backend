@@ -47,7 +47,7 @@ export const createQuestion = async (req, res) => {
 
 export const updateQuestion = async (req, res) => {
   const { id } = req.params;
-  const { idthema, thema, question, createdAt } = req.body;
+  const { idthema, thema, question, inputType} = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send(`No post with id: ${id}`);
@@ -55,8 +55,8 @@ export const updateQuestion = async (req, res) => {
   const updateQuestion = {
     idthema,
     thema,
-    question,
-    createdAt,
+    question,  
+    inputType,  
     _id: id,
   };
 
