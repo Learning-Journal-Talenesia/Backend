@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
 import postroutes from "./routes/questions.route.js";
+import qnaroutes from "./routes/users.route.js"
 dotenv.config();
 
 const app = express();
@@ -13,7 +14,8 @@ const CONNECTION_URL = process.env.CONNECTION_URL;
 app.use(bodyParser.json({ limit: "30mb", extended: true })); //This is because we are gonna send images so we limit it to 30mb
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
-app.use("/", postroutes);
+app.use("/q", postroutes);
+app.use("/qna", qnaroutes);
 
 mongoose
   .connect(`${CONNECTION_URL}`, {

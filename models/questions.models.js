@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const questionSchema = mongoose.Schema({
+  idthema:{
+    type: String,
+    required: true
+  },
   thema: {
     type: String,
     required: true,
