@@ -27,11 +27,12 @@ export const getQuestion = async (req, res) => {
 };
 
 export const createQuestion = async (req, res) => {
-  const { thema, question, createdAt } = req.body;
+  const {idtema, title, questions, createdAt } = req.body;
 
   const newQuestion = new Questions({
-    thema,
-    question,
+    idtema,
+    title,
+    questions,
     createdAt,
   });
 
