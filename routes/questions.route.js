@@ -5,13 +5,13 @@ import {
   getQuestion,
   updateQuestion,
   deleteQuestion,
-  getAllQuestionByThema,
+  getAllQuestionByThemaId,
 } from "../controllers/questions.controller.js";
 
 const router = express.Router();
 
 router.get("/", getAllQuestion);
-router.get("/:nameThema", getAllQuestionByThema);
+router.get("/:idThema", getAllQuestionByThemaId);
 router.post("/", createQuestion);
 router.get("/:id", getQuestion);
 router.patch("/:id", updateQuestion);

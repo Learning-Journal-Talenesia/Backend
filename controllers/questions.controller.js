@@ -15,6 +15,19 @@ export const getAllQuestion = async (req, res) => {
   }
 };
 
+export const getAllQuestionByThemaId = async (req, res) => {
+  const { idThema } = req.params;
+  try {
+    const response = await Questions.find({ idThema: idThema });
+    res.status(200).json({
+      data: response,
+      message: "Get all question by thema id successfully",
+    });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
 export const getAllQuestionByThema = async (req, res) => {
   const { nameThema } = req.params;
   // const normalText = SlugBuilder.changeSlugToNormal(nameThema);
