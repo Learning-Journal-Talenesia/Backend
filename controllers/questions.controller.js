@@ -27,12 +27,13 @@ export const getQuestion = async (req, res) => {
 };
 
 export const createQuestion = async (req, res) => {
-  const { thema, question, createdAt } = req.body;
+  const {idthema, thema, question, inputType } = req.body;
 
   const newQuestion = new Questions({
+    idthema,
     thema,
     question,
-    createdAt,
+    inputType,    
   });
 
   try {
@@ -46,15 +47,16 @@ export const createQuestion = async (req, res) => {
 
 export const updateQuestion = async (req, res) => {
   const { id } = req.params;
-  const { thema, question, createdAt } = req.body;
+  const { idthema, thema, question, inputType} = req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send(`No post with id: ${id}`);
 
   const updateQuestion = {
+    idthema,
     thema,
-    question,
-    createdAt,
+    question,  
+    inputType,  
     _id: id,
   };
 
