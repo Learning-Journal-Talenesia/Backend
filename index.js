@@ -3,6 +3,8 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import postroutes from "./routes/questions.route.js";
+import qnaroutes from "./routes/users.route.js"
 import postroutes from "./routes/post.js";
 dotenv.config();
 
@@ -13,12 +15,9 @@ const CONNECTION_URL = process.env.CONNECTION_URL;
 app.use(bodyParser.json({ limit: "30mb", extended: true })); //This is because we are gonna send images so we limit it to 30mb
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
-app.use("/", postroutes);
-app.post("/callback", (req, res) => {
-  const response = req.body;
-  console.log(response);
-  return res.status(200).json({ data: response, message: "success" });
-});
+app.use("/q", postroutes);
+app.use("/qna", qnaroutes);
+
 
 mongoose
   .connect(`${CONNECTION_URL}`, {
