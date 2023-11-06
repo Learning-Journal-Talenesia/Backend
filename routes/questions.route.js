@@ -11,7 +11,7 @@ import {
 const router = express.Router();
 
 router.get("/", getAllQuestion);
-router.get("/:idThema", getAllQuestionByThemaId);
+router.get("/thema/:idThema", getAllQuestionByThemaId);
 router.post("/", createQuestion);
 router.get("/:id", getQuestion);
 router.patch("/:id", updateQuestion);
