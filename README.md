@@ -79,7 +79,7 @@ Creates a new question.
 - **Success Response:**
   - **Code:** 200
   - **Content:**
-    ```json
+    ```
     {
       newQuestion: {
         "idThema": "<integer>",
@@ -104,7 +104,7 @@ Returns a specific question by ID.
 - **Success Response:**
   - **Code:** 200
   - **Content:**
-    ```json
+    ```
     {
       question: {
         "idThema": "<integer>",
@@ -137,7 +137,7 @@ Updates a specific question by ID.
 - **Success Response:**
   - **Code:** 200
   - **Content:**
-    ```json
+    ```
     {
       updatedQuestion: {
         "idThema": "<integer>",
@@ -228,7 +228,7 @@ Creates a new user.
 - **Success Response:**
   - **Code:** 201
   - **Content:**
-    ```json
+    ```
     {
       newUser: {
         "idThema": "<string>",
@@ -264,7 +264,7 @@ Updates a specific user by `idThema` and `idUser`.
 - **Success Response:**
   - **Code:** 200
   - **Content:**
-    ```json
+    ```
     {
       updatedUser: {
         "idThema": "<string>",
