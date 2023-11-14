@@ -81,7 +81,7 @@ Creates a new question.
   - **Content:**
     ```json
     {
-      "newQuestion": {
+      newQuestion: {
         "idThema": "<integer>",
         "thema": "<string>",
         "question": "<string>",
@@ -106,7 +106,7 @@ Returns a specific question by ID.
   - **Content:**
     ```json
     {
-      "question": {
+      question: {
         "idThema": "<integer>",
         "thema": "<string>",
         "question": "<string>",
@@ -139,7 +139,7 @@ Updates a specific question by ID.
   - **Content:**
     ```json
     {
-      "updatedQuestion": {
+      updatedQuestion: {
         "idThema": "<integer>",
         "thema": "<string>",
         "question": "<string>",
@@ -230,7 +230,7 @@ Creates a new user.
   - **Content:**
     ```json
     {
-      "newUser": {
+      newUser: {
         "idThema": "<string>",
         "thema": "<string>",
         "idUser": "<string>",
@@ -266,7 +266,7 @@ Updates a specific user by `idThema` and `idUser`.
   - **Content:**
     ```json
     {
-      "updatedUser": {
+      updatedUser: {
         "idThema": "<string>",
         "thema": "<string>",
         "idUser": "<string>",
