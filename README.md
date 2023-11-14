@@ -168,6 +168,140 @@ Deletes a specific question by ID.
 - **Error Response:**
   - **Code:** 404
   - **Content:** `{ "message": "Error message if the question is not found" }`
+---
+
+## User's answers Model
+
+### Schema
+
+```javascript
+{
+  idThema: String,
+  thema: String,
+  idUser: String,
+  userName: String,
+  qna: [
+    {
+      q: [String],
+      a: [String],
+    }
+  ],
+  createdAt: Date (default: new Date())
+}
+```
+---
+### Endpoint: `GET /`
+
+Returns all users.
+
+- **Data Params**
+  - None
+- **Headers**
+  - None
+- **Success Response:**
+  - **Code:** 200
+  - **Content:**  
+```
+{
+  users: [
+           {<user_object>},
+           {<user_object>},
+           {<user_object>}
+         ]
+}
+```
+
+### Endpoint: `POST /`
+
+Creates a new user.
+
+- **Data Params**
+  - *Required:*
+    - `idThema` (string)
+    - `thema` (string)
+    - `idUser` (string)
+    - `userName` (string)
+    - `qna` (array of objects with `q` and `a` arrays)
+    - `createdAt` (string)
+- **Headers**
+  - None
+- **Success Response:**
+  - **Code:** 201
+  - **Content:**
+    ```json
+    {
+      "newUser": {
+        "idThema": "<string>",
+        "thema": "<string>",
+        "idUser": "<string>",
+        "userName": "<string>",
+        "qna": [
+          {
+            "q": ["<string>"],
+            "a": ["<string>"]
+          }
+        ],
+        "createdAt": "<Date>"
+      }
+    }
+    ```
+- **Error Response:**
+  - **Code:** 409
+  - **Content:** `{ "message": "User with the same idThema and idUser already exists." }`
+
+### Endpoint: `PATCH /:idThema/:idUser`
+
+Updates a specific user by `idThema` and `idUser`.
+
+- **URL Params**
+  - *Required:* `idThema=[string]`, `idUser=[string]`
+- **Data Params**
+  - *Required:*
+    - `qna` (array of objects with `q` and `a` arrays)
+    - `createdAt` (string)
+- **Headers**
+  - None
+- **Success Response:**
+  - **Code:** 200
+  - **Content:**
+    ```json
+    {
+      "updatedUser": {
+        "idThema": "<string>",
+        "thema": "<string>",
+        "idUser": "<string>",
+        "userName": "<string>",
+        "qna": [
+          {
+            "q": ["<string>"],
+            "a": ["<string>"]
+          }
+        ],
+        "createdAt": "<Date>"
+      }
+    }
+    ```
+- **Error Response:**
+  - **Code:** 404
+  - **Content:** `{ "message": "User not found" }`
+
+### Endpoint: `DELETE /:idThema/:idUser`
+
+Deletes a specific user by `idThema` and `idUser`.
+
+- **URL Params**
+  - *Required:* `idThema=[string]`, `idUser=[string]`
+- **Data Params**
+  - None
+- **Headers**
+  - None
+- **Success Response:**
+  - **Code:** 200
+  - **Content:** `{ "message": "User deleted successfully." }`
+- **Error Response:**
+  - **Code:** 404
+  - **Content:** `{ "message": "User not found" }`
+
 
 
 
