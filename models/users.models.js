@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const qnaSchema = mongoose.Schema({
     q:{
-        type: [String],
+        type: String,
         required: true
     },
     a:{

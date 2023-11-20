@@ -105,3 +105,16 @@ export const deleteQuestion = async (req, res) => {
 
   res.json({ message: "Post deleted successfully." });
 };
+
+export const deleteQuestionByIdThema = async (req, res) => {
+  const {idThema} = req.params;
+  try{
+    const question = await Questions.find({idThema: idThema});
+    if(!question){
+      return res.status(404).json({message: 'Question not Found'});     
+    }
+    await question.deleteMany({idThema: idThema});
+  }catch(err){    
+    res.status(500).json({ message: 'Internal Server Error' });
+  }
+}

@@ -5,6 +5,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import postroutes from "./routes/questions.route.js";
 import qnaroutes from "./routes/users.route.js";
+import temaroutes from "./routes/tema.route.js";
 dotenv.config();
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use("/q", postroutes);
 app.use("/qna", qnaroutes);
+app.use("/tema", temaroutes);
 
 mongoose
   .connect(`${CONNECTION_URL}`, {
